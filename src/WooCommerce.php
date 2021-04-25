@@ -70,7 +70,7 @@ class WooCommerce {
    */
   public static function getRelatedAccessoriesIds() {
     $related_accessories_ids = array_filter(get_field('field_group_related_accessories') ?: []);
-    return apply_filters(Plugin::PREFIX . '/get_related_accessories_ids', $related_accessories_ids);
+    return $related_accessories_ids;
   }
 
   /**

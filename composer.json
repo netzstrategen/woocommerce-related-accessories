@@ -1,0 +1,9 @@
+{
+    "name": "local-plugins/related-accessories",
+    "type": "wordpress-plugin",
+    "require": {
+        "php": ">=7.0.0",
+        "composer/installers": "^1"
+    },
+    "version": "master"
+}

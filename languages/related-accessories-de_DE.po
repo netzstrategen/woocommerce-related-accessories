@@ -1,16 +1,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: woocommerce-moeve\n"
-"POT-Creation-Date: 2019-05-23 11:25+0200\n"
-"PO-Revision-Date: 2019-05-23 11:26+0200\n"
-"Last-Translator: Luca Pipolo <luca@netzstrategen.com>\n"
+"POT-Creation-Date: 2020-11-05 11:04+0100\n"
+"PO-Revision-Date: 2020-11-05 11:04+0100\n"
+"Last-Translator: Luca Pipolo <dev@lucapipolo.com>\n"
 "Language-Team: netzstrategen\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Generator: Poedit 2.4.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
@@ -31,37 +31,21 @@ msgstr ""
 "die Plugins WooCommerce, ACF Pro sowie YITH Quick View installiert und "
 "aktiviert sind."
 
-#: src/Plugin.php:82
+#: src/Plugin.php:76
 msgid "Related Accessories"
 msgstr "Zubehör"
 
-#: src/Plugin.php:91
-msgid "Pads and pillows"
-msgstr "Auflagen & Kissen"
+#: src/Plugin.php:85
+msgid "Supplies"
+msgstr "Zubehör"
 
-#: src/Plugin.php:112
-msgid "Covers"
-msgstr "Schutzhüllen"
+#: src/Plugin.php:106
+msgid "Accessories"
+msgstr "Boutique"
 
-#: src/Plugin.php:133
-msgid "Care products"
-msgstr "Pflegemittel"
-
-#: src/Plugin.php:154
-msgid "Spare parts"
-msgstr "Ersatzteile"
-
-#: src/Plugin.php:175
-msgid "Parasol accessories"
-msgstr "Sonnenschirm-Zubehör"
-
-#: src/Plugin.php:196
-msgid "Beach chair accessories"
-msgstr "Strandkorb-Zubehör"
-
-#: src/Plugin.php:217
-msgid "Other accessories"
-msgstr "Sonstiges Zubehör"
+#: src/Plugin.php:127
+msgid "Furniture Care"
+msgstr "Möbelpflege"
 
 #: templates/related-accessories.php:11
 msgid "Matching accessories - order now:"
@@ -83,8 +67,26 @@ msgstr "Wähle eine Option"
 msgid "Reset accessories"
 msgstr "Zubehör ausblenden"
 
-#~ msgid "Supplier ID"
-#~ msgstr "Lieferantennummer"
+#~ msgid "Pads and pillows"
+#~ msgstr "Auflagen & Kissen"
+
+#~ msgid "Covers"
+#~ msgstr "Schutzhüllen"
+
+#~ msgid "Care products"
+#~ msgstr "Pflegemittel"
+
+#~ msgid "Spare parts"
+#~ msgstr "Ersatzteile"
+
+#~ msgid "Parasol accessories"
+#~ msgstr "Sonnenschirm-Zubehör"
+
+#~ msgid "Beach chair accessories"
+#~ msgstr "Strandkorb-Zubehör"
+
+#~ msgid "Other accessories"
+#~ msgstr "Sonstiges Zubehör"
 
 #~ msgid "AS400 product group"
 #~ msgstr "AS400 Warengruppe"

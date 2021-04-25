@@ -28,7 +28,7 @@ jQuery(document).ready(function($) {
       $slider.flexslider({
         animation: 'slide',
         itemWidth: 210,
-        itemMargin: 0,
+        itemMargin: 5,
         controlNav: false,
         minItems: displayItems,
         maxItems: displayItems,

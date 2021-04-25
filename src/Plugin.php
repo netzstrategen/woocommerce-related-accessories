@@ -44,7 +44,12 @@ class Plugin {
    */
   public static function init() {
     if (function_exists('register_field_group')) {
-      static::register_acf();
+      if (SKIN === 'wopa') {
+        static::register_wopa_acf();
+      }
+      else {
+        static::register_lart_acf();
+      }
       add_filter('acf/fields/relationship/query/key=field_pads_and_pillows', __CLASS__ . '::acf_relationship_filter');
       add_filter('acf/fields/relationship/query/key=field_covers', __CLASS__ . '::acf_relationship_filter');
       add_filter('acf/fields/relationship/query/key=field_care_products', __CLASS__ . '::acf_relationship_filter');
@@ -68,9 +73,9 @@ class Plugin {
   }
 
   /**
-   * Registers custom fields.
+   * Registers custom fields for WOPA.
    */
-  public static function register_acf() {
+  public static function register_wopa_acf() {
     acf_add_local_field_group([
       'key' => 'group_related_accessories',
       'title' => __('Related Accessories', Plugin::L10N),
@@ -81,15 +86,15 @@ class Plugin {
           'type' => 'group',
           'sub_fields' => [
             [
-              'key' => 'field_pads_and_pillows',
-              'label' => __('Pads and pillows', Plugin::L10N),
-              'name' => 'pads_and_pillows',
+              'key' => 'field_zubehoer',
+              'label' => __('Zubehör', Plugin::L10N),
+              'name' => 'zubehoer',
               'type' => 'relationship',
               'post_type' => [
                 0 => 'product',
               ],
               'taxonomy' => [
-                0 => 'product_cat:auflagen-kissen',
+                0 => 'product_cat:zubehoer',
               ],
               'filters' => [
                 0 => 'search',
@@ -102,30 +107,9 @@ class Plugin {
               'return_format' => 'id',
             ],
             [
-              'key' => 'field_covers',
-              'label' => __('Covers', Plugin::L10N),
-              'name' => 'covers',
-              'type' => 'relationship',
-              'post_type' => [
-                0 => 'product',
-              ],
-              'taxonomy' => [
-                0 => 'product_cat:schutzhuellen',
-              ],
-              'filters' => [
-                0 => 'search',
-                1 => 'post_type',
-                2 => 'taxonomy',
-              ],
-              'elements' => [
-                0 => 'featured_image',
-              ],
-              'return_format' => 'id',
-            ],
-            [
-              'key' => 'field_care_products',
-              'label' => __('Care products', Plugin::L10N),
-              'name' => 'care_products',
+              'key' => 'field_pflegemittel',
+              'label' => __('Pflegemittel', Plugin::L10N),
+              'name' => 'pflegemittel',
               'type' => 'relationship',
               'post_type' => [
                 0 => 'product',
@@ -144,15 +128,64 @@ class Plugin {
               'return_format' => 'id',
             ],
             [
-              'key' => 'field_spare_parts',
-              'label' => __('Spare parts', Plugin::L10N),
-              'name' => 'spare_parts',
+              'key' => 'field_accessoires_und_deko',
+              'label' => __('Accessoires & Deko', Plugin::L10N),
+              'name' => 'accessoires-und-deko',
               'type' => 'relationship',
               'post_type' => [
                 0 => 'product',
               ],
               'taxonomy' => [
-                0 => 'product_cat:ersatzteile',
+                0 => 'product_cat:accessoires-und-deko',
+              ],
+              'filters' => [
+                0 => 'search',
+                1 => 'post_type',
+                2 => 'taxonomy',
+              ],
+              'elements' => [
+                0 => 'featured_image',
+              ],
+              'return_format' => 'id',
+            ],
+          ],
+        ],
+      ],
+      'location' => [
+        [
+          [
+            'param' => 'post_type',
+            'operator' => '==',
+            'value' => 'product',
+          ],
+        ],
+      ],
+    ]);
+  }
+
+  /**
+   * Registers custom fields for LART.
+   */
+  public static function register_lart_acf() {
+    acf_add_local_field_group([
+      'key' => 'group_related_accessories',
+      'title' => __('Related Accessories', Plugin::L10N),
+      'fields' => [
+        [
+          'key' => 'field_group_related_accessories',
+          'name' => 'field_group_related_accessories',
+          'type' => 'group',
+          'sub_fields' => [
+            [
+              'key' => 'field_leuchtmittel',
+              'label' => __('Leuchtmittel', Plugin::L10N),
+              'name' => 'leuchtmittel',
+              'type' => 'relationship',
+              'post_type' => [
+                0 => 'product',
+              ],
+              'taxonomy' => [
+                0 => 'product_cat:leuchtmittel',
               ],
               'filters' => [
                 0 => 'search',
@@ -165,15 +198,15 @@ class Plugin {
               'return_format' => 'id',
             ],
             [
-              'key' => 'parasol_accessories',
-              'label' => __('Parasol accessories', Plugin::L10N),
-              'name' => 'parasol_accessories',
+              'key' => 'field_led_lampen',
+              'label' => __('LED-Lampen', Plugin::L10N),
+              'name' => 'led-lampen',
               'type' => 'relationship',
               'post_type' => [
                 0 => 'product',
               ],
               'taxonomy' => [
-                0 => 'product_cat:sonnenschirm-zubehoer',
+                0 => 'product_cat:led-lampen',
               ],
               'filters' => [
                 0 => 'search',
@@ -186,15 +219,15 @@ class Plugin {
               'return_format' => 'id',
             ],
             [
-              'key' => 'beach_chair_accessories',
-              'label' => __('Beach chair accessories', Plugin::L10N),
-              'name' => 'beach_chair_accessories',
+              'key' => 'field_leuchtenzubehoer',
+              'label' => __('Leuchtenzubehör', Plugin::L10N),
+              'name' => 'leuchtenzubehoer',
               'type' => 'relationship',
               'post_type' => [
                 0 => 'product',
               ],
               'taxonomy' => [
-                0 => 'product_cat:strandkorb-zubehoer',
+                0 => 'product_cat:leuchtenzubehoer',
               ],
               'filters' => [
                 0 => 'search',
@@ -207,15 +240,120 @@ class Plugin {
               'return_format' => 'id',
             ],
             [
-              'key' => 'field_other_accessories',
-              'label' => __('Other accessories', Plugin::L10N),
-              'name' => 'other_accessories',
+              'key' => 'field_zubehoer',
+              'label' => __('Zubehoer', Plugin::L10N),
+              'name' => 'zubehoer',
               'type' => 'relationship',
               'post_type' => [
                 0 => 'product',
               ],
               'taxonomy' => [
-                0 => 'product_cat:sonstiges-zubehoer',
+                0 => 'product_cat:zubehoer',
+              ],
+              'filters' => [
+                0 => 'search',
+                1 => 'post_type',
+                2 => 'taxonomy',
+              ],
+              'elements' => [
+                0 => 'featured_image',
+              ],
+              'return_format' => 'id',
+            ],
+            [
+              'key' => 'field_zubehoer_occhio',
+              'label' => __('Zubehör Occhio', Plugin::L10N),
+              'name' => 'zubehoer-occhio',
+              'type' => 'relationship',
+              'post_type' => [
+                0 => 'product',
+              ],
+              'taxonomy' => [
+                0 => 'product_cat:zubehoer-occhio',
+              ],
+              'filters' => [
+                0 => 'search',
+                1 => 'post_type',
+                2 => 'taxonomy',
+              ],
+              'elements' => [
+                0 => 'featured_image',
+              ],
+              'return_format' => 'id',
+            ],
+            [
+              'key' => 'field_zubehoer_top_light',
+              'label' => __('Zubehör Top Light', Plugin::L10N),
+              'name' => 'zubehoer-top-light',
+              'type' => 'relationship',
+              'post_type' => [
+                0 => 'product',
+              ],
+              'taxonomy' => [
+                0 => 'product_cat:zubehoer-top-light',
+              ],
+              'filters' => [
+                0 => 'search',
+                1 => 'post_type',
+                2 => 'taxonomy',
+              ],
+              'elements' => [
+                0 => 'featured_image',
+              ],
+              'return_format' => 'id',
+            ],
+            [
+              'key' => 'field_zubehoer_bopp',
+              'label' => __('Zubehör Bopp', Plugin::L10N),
+              'name' => 'zubehoer-bopp',
+              'type' => 'relationship',
+              'post_type' => [
+                0 => 'product',
+              ],
+              'taxonomy' => [
+                0 => 'product_cat:zubehoer-bopp',
+              ],
+              'filters' => [
+                0 => 'search',
+                1 => 'post_type',
+                2 => 'taxonomy',
+              ],
+              'elements' => [
+                0 => 'featured_image',
+              ],
+              'return_format' => 'id',
+            ],
+            [
+              'key' => 'field_baldachine',
+              'label' => __('Baldachine', Plugin::L10N),
+              'name' => 'baldachine',
+              'type' => 'relationship',
+              'post_type' => [
+                0 => 'product',
+              ],
+              'taxonomy' => [
+                0 => 'product_cat:baldachine',
+              ],
+              'filters' => [
+                0 => 'search',
+                1 => 'post_type',
+                2 => 'taxonomy',
+              ],
+              'elements' => [
+                0 => 'featured_image',
+              ],
+              'return_format' => 'id',
+            ],
+            [
+              'key' => 'field_leuchtenschirme',
+              'label' => __('Leuchtenschirme', Plugin::L10N),
+              'name' => 'leuchtenschirme',
+              'type' => 'relationship',
+              'post_type' => [
+                0 => 'product',
+              ],
+              'taxonomy' => [
+                0 => 'product_cat:leuchtenschirme',
               ],
               'filters' => [
                 0 => 'search',

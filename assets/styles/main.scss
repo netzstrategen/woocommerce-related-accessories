@@ -1,18 +1,15 @@
 /**
  * 1. Use `!important` to override values set by flexslider.
  */
-body[class*="woocommerce"] {
+ body[class*="woocommerce"] {
   .related-accessories,
   .related-accessories--summary {
+    padding: 1em 1em 1.25em;
+    margin: 2em 0;
+    background-color: #fff;
     padding: 10px 15px;
-    border: 1px solid #4d801c;
+    border: 1px solid #153d89;
     border-radius: 2px;
-    margin: 30px 0;
-    background-color: #fcfcfc;
-  }
-
-  .related-accessories--summary {
-    margin-top: -30px;
   }
 
   [class^="related-accessories"] {
@@ -34,7 +31,34 @@ body[class*="woocommerce"] {
       font-size: 0.83em;
       line-height: 28px;
       text-align: right;
-      color: #4d801c;
+      color: #153d89;
+    }
+
+    span.onsale.onsale,
+    .woocommerce-advanced-product-label {
+      font-size: 0.85em;
+    }
+
+    // Sale percentage bubble.
+    span.onsale.onsale {
+      top: 10px;
+      right: 10px;
+    }
+
+    // Adjust product title and price text.
+    .product__details {
+      margin-top: 0.5em;
+      line-height: 1.2;
+
+      .price.price {
+        margin-top: 0.35em;
+        font-size: inherit;
+      }
+    }
+
+    // Hide WooCommerce German Market tax and delivery info.
+    .wgm-info {
+      display: none;
     }
   }
 
@@ -43,38 +67,124 @@ body[class*="woocommerce"] {
 
     .slides {
       display: flex !important;
+      justify-content: space-between;
+      margin: 0;
 
       li.product {
         position: relative;
-        margin: 0;
-        width: 100% !important;
-        min-height: 460px;
         display: flex !important;
+        width: 100% !important;
         flex-direction: column;
         flex: 0 0 auto;
-        @media screen and (min-width: 550px) { width: 100% !important; } // [1]
-        @media screen and (min-width: 768px) { width: 25% !important; } // [1]
-        @media screen and (min-width: 992px) { width: 25% !important; } // [1]
+        margin: 0;
+
+        // [1]
+        @media screen and (min-width: 550px) { width: 100% !important; }
+        @media screen and (min-width: 768px) { width: calc(25% - 10px) !important; }
+        @media screen and (min-width: 992px) { width: calc(25% - 10px) !important; }
+
+        // [1]
+        .related-accessories--summary & {
+          @media screen and (min-width: 550px) { width: 100% !important; }
+          @media screen and (min-width: 768px) { width: calc(33.333% - 10px) !important; }
+          @media screen and (min-width: 992px) { width: calc(33.333% - 10px) !important; }
+        }
       }
     }
 
-    .flex-next,
-    .flex-prev {
-      transform: scale(0.7);
+    .flex-direction-nav {
+      list-style-type: none;
     }
 
     .flex-next {
       transform-origin: top right;
     }
+
     .flex-prev {
       transform-origin: top left;
+    }
+
+    .flex-prev,
+    .flex-next {
+      background-color: rgba(#000, 0.3);
+      top: 50%;
+      position: absolute;
+      transform: translateY(-50%);
+      transform: scale(0.7);
+      font-size: 65px;
+      text-indent: -9999px;
+      border: 0;
+      outline: 0;
+      width: 70px;
+      height: 90px;
+
+      &.flex-disabled {
+        display: none;
+      }
+
+      &:before {
+        display: inline-block;
+        font-family: "icons" !important;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        position: absolute;
+        text-indent: 0;
+        opacity: 1;
+      }
+
+      &.flex-disabled {
+
+        &:before {
+          opacity: 0.5;
+        }
+      }
+
+      &.flex-prev {
+        left: 0;
+
+        &:before {
+          content: " ";
+          height: 60px;
+          width: 40px;
+          background: url(data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZm9jdXNhYmxlPSJmYWxzZSIgZGF0YS1wcmVmaXg9ImZhcyIgZGF0YS1pY29uPSJjaGV2cm9uLWxlZnQiIGNsYXNzPSJzdmctaW5saW5lLS1mYSBmYS1jaGV2cm9uLWxlZnQgZmEtdy0xMCIgcm9sZT0iaW1nIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNTEyIj48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMzQuNTIgMjM5LjAzTDIyOC44NyA0NC42OWM5LjM3LTkuMzcgMjQuNTctOS4zNyAzMy45NCAwbDIyLjY3IDIyLjY3YzkuMzYgOS4zNiA5LjM3IDI0LjUyLjA0IDMzLjlMMTMxLjQ5IDI1NmwxNTQuMDIgMTU0Ljc1YzkuMzQgOS4zOCA5LjMyIDI0LjU0LS4wNCAzMy45bC0yMi42NyAyMi42N2MtOS4zNyA5LjM3LTI0LjU3IDkuMzctMzMuOTQgMEwzNC41MiAyNzIuOTdjLTkuMzctOS4zNy05LjM3LTI0LjU3IDAtMzMuOTR6Ij48L3BhdGg+PC9zdmc+Cg==) no-repeat;
+          transform: translateX(-60%) translateY(-50%);
+          top: 50%;
+          left: 50%;
+        }
+      }
+
+      &.flex-next {
+        right: 0;
+
+        &:before {
+          content: " ";
+          height: 60px;
+          width: 40px;
+          background: url(data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZm9jdXNhYmxlPSJmYWxzZSIgZGF0YS1wcmVmaXg9ImZhcyIgZGF0YS1pY29uPSJjaGV2cm9uLXJpZ2h0IiBjbGFzcz0ic3ZnLWlubGluZS0tZmEgZmEtY2hldnJvbi1yaWdodCBmYS13LTEwIiByb2xlPSJpbWciIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDMyMCA1MTIiPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0yODUuNDc2IDI3Mi45NzFMOTEuMTMyIDQ2Ny4zMTRjLTkuMzczIDkuMzczLTI0LjU2OSA5LjM3My0zMy45NDEgMGwtMjIuNjY3LTIyLjY2N2MtOS4zNTctOS4zNTctOS4zNzUtMjQuNTIyLS4wNC0zMy45MDFMMTg4LjUwNSAyNTYgMzQuNDg0IDEwMS4yNTVjLTkuMzM1LTkuMzc5LTkuMzE3LTI0LjU0NC4wNC0zMy45MDFsMjIuNjY3LTIyLjY2N2M5LjM3My05LjM3MyAyNC41NjktOS4zNzMgMzMuOTQxIDBMMjg1LjQ3NSAyMzkuMDNjOS4zNzMgOS4zNzIgOS4zNzMgMjQuNTY4LjAwMSAzMy45NDF6Ij48L3BhdGg+PC9zdmc+Cg==) no-repeat;
+          transform: translateX(60%) translateY(-50%);
+          top: 50%;
+          right: 50%;
+        }
+      }
+
+      &.flex-prev,
+      &.flex-next {
+        color: #fff;
+
+        &:hover,
+        &:focus {
+          background: rgba(#000, 0.6);
+        }
+      }
     }
   }
 
   .related-accessories--summary .related-accessories__slideshow .slides li.product {
-    @media screen and (min-width: 550px) { width: 100% !important; } // [1]
-    @media screen and (min-width: 768px) { width: 33.333% !important; } // [1]
-    @media screen and (min-width: 992px) { width: 33.333% !important; } // [1]
+    @media screen and (min-width: 550px) { width: calc(100% - 2px) !important; } // [1]
+    @media screen and (min-width: 768px) { width: calc(33.333% - 2px) !important; } // [1]
+    @media screen and (min-width: 992px) { width: calc(33.333% - 2px) !important; } // [1]
   }
 }
 
@@ -125,7 +235,7 @@ body[class*="woocommerce"] {
 
 .woocommerce-info-related-accessories {
   padding: 10px 15px;
-  border: 1px solid #4d801c;
+  border: 1px solid #153d89;
   margin-bottom: 30px;
   background-color: #fcfcfc;
 }
