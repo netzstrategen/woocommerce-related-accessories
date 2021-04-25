@@ -1,0 +1,76 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: woocommerce-related-accessories\n"
+"POT-Creation-Date: 2019-05-23 11:25+0200\n"
+"PO-Revision-Date: 2015-06-18 14:18+0100\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.2.3\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"Last-Translator: \n"
+"Language-Team: netzstrategen\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: .sass-cache\n"
+"X-Poedit-SearchPathExcluded-1: bower_components\n"
+"X-Poedit-SearchPathExcluded-2: node_modules\n"
+
+#: src/Admin.php:23
+msgid "WooCommerce Related Accessories plugin requires that ACF Pro, YITH Quick View and WooCommerce plugins are installed and active."
+msgstr ""
+
+#: src/Plugin.php:82
+msgid "Related Accessories"
+msgstr ""
+
+#: src/Plugin.php:91
+msgid "Pads and pillows"
+msgstr ""
+
+#: src/Plugin.php:112
+msgid "Covers"
+msgstr ""
+
+#: src/Plugin.php:133
+msgid "Care products"
+msgstr ""
+
+#: src/Plugin.php:154
+msgid "Spare parts"
+msgstr ""
+
+#: src/Plugin.php:175
+msgid "Parasol accessories"
+msgstr ""
+
+#: src/Plugin.php:196
+msgid "Beach chair accessories"
+msgstr ""
+
+#: src/Plugin.php:217
+msgid "Other accessories"
+msgstr ""
+
+#: templates/related-accessories.php:11
+msgid "Matching accessories - order now:"
+msgstr ""
+
+#: templates/related-accessories.php:13
+msgid "Accessories & Extras"
+msgstr ""
+
+#: templates/related-accessories.php:18
+msgid "All related products"
+msgstr ""
+
+#: templates/related-accessories.php:20
+msgid "Choose an option"
+msgstr ""
+
+#: templates/related-accessories.php:35
+msgid "Reset accessories"
+msgstr ""

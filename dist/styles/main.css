@@ -1,0 +1,117 @@
+/**
+ * 1. Use `!important` to override values set by flexslider.
+ */
+body[class*="woocommerce"] .related-accessories,
+body[class*="woocommerce"] .related-accessories--summary {
+  padding: 10px 15px;
+  border: 1px solid #4d801c;
+  border-radius: 2px;
+  margin: 30px 0;
+  background-color: #fcfcfc; }
+
+body[class*="woocommerce"] .related-accessories--summary {
+  margin-top: -30px; }
+
+body[class*="woocommerce"] [class^="related-accessories"] h3 {
+  margin-top: 0; }
+
+body[class*="woocommerce"] [class^="related-accessories"] [class|="slideshow"] {
+  display: none; }
+
+body[class*="woocommerce"] [class^="related-accessories"] select {
+  width: 100%; }
+
+body[class*="woocommerce"] [class^="related-accessories"] #reset_related_accessories {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.83em;
+  line-height: 28px;
+  text-align: right;
+  color: #4d801c; }
+
+body[class*="woocommerce"] .related-accessories__slideshow {
+  position: relative; }
+  body[class*="woocommerce"] .related-accessories__slideshow .slides {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important; }
+    body[class*="woocommerce"] .related-accessories__slideshow .slides li.product {
+      position: relative;
+      margin: 0;
+      width: 100% !important;
+      min-height: 460px;
+      display: -webkit-box !important;
+      display: -ms-flexbox !important;
+      display: flex !important;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-flex: 0;
+          -ms-flex: 0 0 auto;
+              flex: 0 0 auto; }
+      @media screen and (min-width: 550px) {
+        body[class*="woocommerce"] .related-accessories__slideshow .slides li.product {
+          width: 100% !important; } }
+      @media screen and (min-width: 768px) {
+        body[class*="woocommerce"] .related-accessories__slideshow .slides li.product {
+          width: 25% !important; } }
+      @media screen and (min-width: 992px) {
+        body[class*="woocommerce"] .related-accessories__slideshow .slides li.product {
+          width: 25% !important; } }
+  body[class*="woocommerce"] .related-accessories__slideshow .flex-next,
+  body[class*="woocommerce"] .related-accessories__slideshow .flex-prev {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7); }
+  body[class*="woocommerce"] .related-accessories__slideshow .flex-next {
+    -webkit-transform-origin: top right;
+            transform-origin: top right; }
+  body[class*="woocommerce"] .related-accessories__slideshow .flex-prev {
+    -webkit-transform-origin: top left;
+            transform-origin: top left; }
+
+@media screen and (min-width: 550px) {
+  body[class*="woocommerce"] .related-accessories--summary .related-accessories__slideshow .slides li.product {
+    width: 100% !important; } }
+
+@media screen and (min-width: 768px) {
+  body[class*="woocommerce"] .related-accessories--summary .related-accessories__slideshow .slides li.product {
+    width: 33.333% !important; } }
+
+@media screen and (min-width: 992px) {
+  body[class*="woocommerce"] .related-accessories--summary .related-accessories__slideshow .slides li.product {
+    width: 33.333% !important; } }
+
+#yith-quick-view-modal {
+  z-index: 999; }
+  #yith-quick-view-modal .yith-wcqv-main {
+    overflow-y: hidden;
+    -webkit-box-shadow: none;
+            box-shadow: none; }
+    #yith-quick-view-modal .yith-wcqv-main #yith-quick-view-close {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      line-height: 40px;
+      font-size: 20px;
+      opacity: 1;
+      background-color: #fff; }
+    #yith-quick-view-modal .yith-wcqv-main #yith-quick-view-content {
+      overflow-y: scroll; }
+      #yith-quick-view-modal .yith-wcqv-main #yith-quick-view-content div.images {
+        width: 100%; }
+    #yith-quick-view-modal .yith-wcqv-main .woocommerce div.product {
+      margin: 20px; }
+    #yith-quick-view-modal .yith-wcqv-main [class*="woocommerce-Tabs-panel--"] {
+      display: none; }
+    #yith-quick-view-modal .yith-wcqv-main .woocommerce-Tabs-panel--description {
+      display: block; }
+  @media screen and (max-width: 768px) {
+    #yith-quick-view-modal body[class*="woocommerce"] ul.flickity.products li {
+      width: 100%; } }
+
+.woocommerce-info-related-accessories {
+  padding: 10px 15px;
+  border: 1px solid #4d801c;
+  margin-bottom: 30px;
+  background-color: #fcfcfc; }
