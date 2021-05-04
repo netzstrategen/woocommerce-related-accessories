@@ -44,7 +44,18 @@ class Plugin {
    */
   public static function init() {
     if (function_exists('register_field_group')) {
-      static::register_acf();
+      if (MOEVE_SHOP === 'GACO') {
+        static::register_gaco_acf();
+      }
+      elseif (MOEVE_SHOP === 'WOPA') {
+        static::register_wopa_acf();
+      }
+      elseif (MOEVE_SHOP === 'LART') {
+        static::register_lart_acf();
+      }
+      else {
+        // No acf registered. TO DO: Combine these to avoid skins.
+      }
       add_filter('acf/fields/relationship/query/key=field_pads_and_pillows', __CLASS__ . '::acf_relationship_filter');
       add_filter('acf/fields/relationship/query/key=field_covers', __CLASS__ . '::acf_relationship_filter');
       add_filter('acf/fields/relationship/query/key=field_care_products', __CLASS__ . '::acf_relationship_filter');
@@ -70,7 +81,7 @@ class Plugin {
   /**
    * Registers custom fields.
    */
-  public static function register_acf() {
+  public static function register_gaco_acf() {
     acf_add_local_field_group([
       'key' => 'group_related_accessories',
       'title' => __('Related Accessories', Plugin::L10N),
