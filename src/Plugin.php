@@ -254,6 +254,314 @@ class Plugin {
   }
 
   /**
+   * Registers custom fields for WOPA.
+   */
+  public static function register_wopa_acf() {
+    acf_add_local_field_group([
+      'key' => 'group_related_accessories',
+      'title' => __('Related Accessories', Plugin::L10N),
+      'fields' => [
+        [
+          'key' => 'field_group_related_accessories',
+          'name' => 'field_group_related_accessories',
+          'type' => 'group',
+          'sub_fields' => [
+            [
+              'key' => 'field_zubehoer',
+              'label' => __('Zubehör', Plugin::L10N),
+              'name' => 'zubehoer',
+              'type' => 'relationship',
+              'post_type' => [
+                0 => 'product',
+              ],
+              'taxonomy' => [
+                0 => 'product_cat:zubehoer',
+              ],
+              'filters' => [
+                0 => 'search',
+                1 => 'post_type',
+                2 => 'taxonomy',
+              ],
+              'elements' => [
+                0 => 'featured_image',
+              ],
+              'return_format' => 'id',
+            ],
+            [
+              'key' => 'field_pflegemittel',
+              'label' => __('Pflegemittel', Plugin::L10N),
+              'name' => 'pflegemittel',
+              'type' => 'relationship',
+              'post_type' => [
+                0 => 'product',
+              ],
+              'taxonomy' => [
+                0 => 'product_cat:pflegemittel',
+              ],
+              'filters' => [
+                0 => 'search',
+                1 => 'post_type',
+                2 => 'taxonomy',
+              ],
+              'elements' => [
+                0 => 'featured_image',
+              ],
+              'return_format' => 'id',
+            ],
+            [
+              'key' => 'field_accessoires_und_deko',
+              'label' => __('Accessoires & Deko', Plugin::L10N),
+              'name' => 'accessoires-und-deko',
+              'type' => 'relationship',
+              'post_type' => [
+                0 => 'product',
+              ],
+              'taxonomy' => [
+                0 => 'product_cat:accessoires-und-deko',
+              ],
+              'filters' => [
+                0 => 'search',
+                1 => 'post_type',
+                2 => 'taxonomy',
+              ],
+              'elements' => [
+                0 => 'featured_image',
+              ],
+              'return_format' => 'id',
+            ],
+          ],
+        ],
+      ],
+      'location' => [
+        [
+          [
+            'param' => 'post_type',
+            'operator' => '==',
+            'value' => 'product',
+          ],
+        ],
+      ],
+    ]);
+  }
+
+  /**
+   * Registers custom fields for LART.
+   */
+  public static function register_lart_acf() {
+    acf_add_local_field_group([
+      'key' => 'group_related_accessories',
+      'title' => __('Related Accessories', Plugin::L10N),
+      'fields' => [
+        [
+          'key' => 'field_group_related_accessories',
+          'name' => 'field_group_related_accessories',
+          'type' => 'group',
+          'sub_fields' => [
+            [
+              'key' => 'field_leuchtmittel',
+              'label' => __('Leuchtmittel', Plugin::L10N),
+              'name' => 'leuchtmittel',
+              'type' => 'relationship',
+              'post_type' => [
+                0 => 'product',
+              ],
+              'taxonomy' => [
+                0 => 'product_cat:leuchtmittel',
+              ],
+              'filters' => [
+                0 => 'search',
+                1 => 'post_type',
+                2 => 'taxonomy',
+              ],
+              'elements' => [
+                0 => 'featured_image',
+              ],
+              'return_format' => 'id',
+            ],
+            [
+              'key' => 'field_led_lampen',
+              'label' => __('LED-Lampen', Plugin::L10N),
+              'name' => 'led-lampen',
+              'type' => 'relationship',
+              'post_type' => [
+                0 => 'product',
+              ],
+              'taxonomy' => [
+                0 => 'product_cat:led-lampen',
+              ],
+              'filters' => [
+                0 => 'search',
+                1 => 'post_type',
+                2 => 'taxonomy',
+              ],
+              'elements' => [
+                0 => 'featured_image',
+              ],
+              'return_format' => 'id',
+            ],
+            [
+              'key' => 'field_leuchtenzubehoer',
+              'label' => __('Leuchtenzubehör', Plugin::L10N),
+              'name' => 'leuchtenzubehoer',
+              'type' => 'relationship',
+              'post_type' => [
+                0 => 'product',
+              ],
+              'taxonomy' => [
+                0 => 'product_cat:leuchtenzubehoer',
+              ],
+              'filters' => [
+                0 => 'search',
+                1 => 'post_type',
+                2 => 'taxonomy',
+              ],
+              'elements' => [
+                0 => 'featured_image',
+              ],
+              'return_format' => 'id',
+            ],
+            [
+              'key' => 'field_zubehoer',
+              'label' => __('Zubehoer', Plugin::L10N),
+              'name' => 'zubehoer',
+              'type' => 'relationship',
+              'post_type' => [
+                0 => 'product',
+              ],
+              'taxonomy' => [
+                0 => 'product_cat:zubehoer',
+              ],
+              'filters' => [
+                0 => 'search',
+                1 => 'post_type',
+                2 => 'taxonomy',
+              ],
+              'elements' => [
+                0 => 'featured_image',
+              ],
+              'return_format' => 'id',
+            ],
+            [
+              'key' => 'field_zubehoer_occhio',
+              'label' => __('Zubehör Occhio', Plugin::L10N),
+              'name' => 'zubehoer-occhio',
+              'type' => 'relationship',
+              'post_type' => [
+                0 => 'product',
+              ],
+              'taxonomy' => [
+                0 => 'product_cat:zubehoer-occhio',
+              ],
+              'filters' => [
+                0 => 'search',
+                1 => 'post_type',
+                2 => 'taxonomy',
+              ],
+              'elements' => [
+                0 => 'featured_image',
+              ],
+              'return_format' => 'id',
+            ],
+            [
+              'key' => 'field_zubehoer_top_light',
+              'label' => __('Zubehör Top Light', Plugin::L10N),
+              'name' => 'zubehoer-top-light',
+              'type' => 'relationship',
+              'post_type' => [
+                0 => 'product',
+              ],
+              'taxonomy' => [
+                0 => 'product_cat:zubehoer-top-light',
+              ],
+              'filters' => [
+                0 => 'search',
+                1 => 'post_type',
+                2 => 'taxonomy',
+              ],
+              'elements' => [
+                0 => 'featured_image',
+              ],
+              'return_format' => 'id',
+            ],
+            [
+              'key' => 'field_zubehoer_bopp',
+              'label' => __('Zubehör Bopp', Plugin::L10N),
+              'name' => 'zubehoer-bopp',
+              'type' => 'relationship',
+              'post_type' => [
+                0 => 'product',
+              ],
+              'taxonomy' => [
+                0 => 'product_cat:zubehoer-bopp',
+              ],
+              'filters' => [
+                0 => 'search',
+                1 => 'post_type',
+                2 => 'taxonomy',
+              ],
+              'elements' => [
+                0 => 'featured_image',
+              ],
+              'return_format' => 'id',
+            ],
+            [
+              'key' => 'field_baldachine',
+              'label' => __('Baldachine', Plugin::L10N),
+              'name' => 'baldachine',
+              'type' => 'relationship',
+              'post_type' => [
+                0 => 'product',
+              ],
+              'taxonomy' => [
+                0 => 'product_cat:baldachine',
+              ],
+              'filters' => [
+                0 => 'search',
+                1 => 'post_type',
+                2 => 'taxonomy',
+              ],
+              'elements' => [
+                0 => 'featured_image',
+              ],
+              'return_format' => 'id',
+            ],
+            [
+              'key' => 'field_leuchtenschirme',
+              'label' => __('Leuchtenschirme', Plugin::L10N),
+              'name' => 'leuchtenschirme',
+              'type' => 'relationship',
+              'post_type' => [
+                0 => 'product',
+              ],
+              'taxonomy' => [
+                0 => 'product_cat:leuchtenschirme',
+              ],
+              'filters' => [
+                0 => 'search',
+                1 => 'post_type',
+                2 => 'taxonomy',
+              ],
+              'elements' => [
+                0 => 'featured_image',
+              ],
+              'return_format' => 'id',
+            ],
+          ],
+        ],
+      ],
+      'location' => [
+        [
+          [
+            'param' => 'post_type',
+            'operator' => '==',
+            'value' => 'product',
+          ],
+        ],
+      ],
+    ]);
+  }
+
+  /**
    * @implements acf/fields/relationship/query/name=acf_related_posts
    */
   public static function acf_relationship_filter(array $options) {
