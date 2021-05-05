@@ -40,13 +40,9 @@ body[class*="woocommerce"] {
     position: relative;
 
     .slides {
-      display: flex !important;
-
       li.product {
         position: relative;
         margin: 0;
-        width: 100% !important;
-        display: flex !important;
         flex-direction: column;
         flex: 0 0 auto;
       }
