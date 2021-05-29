@@ -1,59 +1,54 @@
-/**
- * 1. Use `!important` to override values set by flexslider.
- */
-body[class*="woocommerce"] {
-  .related-accessories,
-  .related-accessories--summary {
-    padding: 10px 15px;
-    border-width:1px;
-    border-style: solid;
-    border-radius: 2px;
+.related-accessories,
+.related-accessories--summary {
+  padding: 10px 15px;
+  border-width:1px;
+  border-style: solid;
+  border-radius: 2px;
+}
+
+.related-accessories--summary {
+  margin-top: -30px;
+}
+
+[class^="related-accessories"] {
+  h3 {
+    margin-top: 0;
   }
 
-  .related-accessories--summary {
-    margin-top: -30px;
+  [class|="slideshow"] {
+    display: none;
   }
 
-  [class^="related-accessories"] {
-    h3 {
-      margin-top: 0;
-    }
+  select {
+    width: 100%;
+  }
 
-    [class|="slideshow"] {
-      display: none;
-    }
+  #reset_related_accessories {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.83em;
+    line-height: 28px;
+    text-align: right;
+  }
+}
 
-    select {
-      width: 100%;
-    }
+.related-accessories__slideshow {
+  position: relative;
 
-    #reset_related_accessories {
-      display: block;
-      margin-bottom: 10px;
-      font-size: 0.83em;
-      line-height: 28px;
-      text-align: right;
+  .slides {
+    li.product {
+      position: relative;
+      margin: 0;
+      flex-direction: column;
+      flex: 0 0 auto;
     }
   }
 
-  .related-accessories__slideshow {
-    position: relative;
-
-    .slides {
-      li.product {
-        position: relative;
-        margin: 0;
-        flex-direction: column;
-        flex: 0 0 auto;
-      }
-    }
-
-    .flex-next {
-      transform-origin: top right;
-    }
-    .flex-prev {
-      transform-origin: top left;
-    }
+  .flex-next {
+    transform-origin: top right;
+  }
+  .flex-prev {
+    transform-origin: top left;
   }
 }
 
@@ -96,7 +91,7 @@ body[class*="woocommerce"] {
   }
 
   @media screen and (max-width: 768px) {
-    body[class*="woocommerce"] ul.flickity.products li {
+    ul.flickity.products li {
       width: 100%;
     }
   }
