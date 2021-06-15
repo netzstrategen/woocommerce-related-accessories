@@ -4,9 +4,9 @@ namespace Netzstrategen\WooCommerceRelatedAccessories;
 
 class Helper {
 
-  public static function getFieldParameters(string $name, string $label): array {
+  public static function getFieldParameters(string $name, string $label, bool $field): array {
     return [
-      'key' => 'field_' . strtr($name, '-', '_'),
+      'key' => $field ? 'field_' . strtr($name, '-', '_') : $name,
       'label' => __($label, Plugin::L10N),
       'name' => $name,
       'type' => 'relationship',
