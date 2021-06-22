@@ -1,16 +1,13 @@
 {
-  "version": "1.1.6",
+  "version": "1.1.7",
   "title": "woocommerce-related-accessories",
   "description": "Displays a list of related accessories on product single page.",
-  "dependencies": {
-    "@netzstrategen/gulp-task-collection": "^1.0.3"
+  "scripts": {
+    "build": "gulp build --concat false",
+    "build:production": "gulp build:production --concat false"
   },
   "gulpPaths": {
     "destDir": "./dist",
-    "images": {
-      "src": "./assets/img/**/*.{jpg,jpeg,png,gif,svg}",
-      "dest": "./dist/img"
-    },
     "scripts": {
       "srcDir": "./assets/scripts",
       "src": [
@@ -24,10 +21,11 @@
         "./assets/styles/**/*.scss"
       ],
       "dest": "./dist/styles"
-    },
-    "templates": "./templates/**/*.twig"
+    }
   },
   "devDependencies": {
-    "eslint-config-google": "^0.13.0"
+    "@netzstrategen/eslint-config": "^1.0.1",
+    "@netzstrategen/gulp-task-collection": "^3.1.1",
+    "@netzstrategen/stylelint-config": "^2.1.0"
   }
 }
