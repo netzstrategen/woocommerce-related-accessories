@@ -92,6 +92,7 @@ class Plugin {
       add_filter('acf/fields/relationship/query/key=field_spare_parts', __CLASS__ . '::acf_relationship_filter');
       add_filter('acf/fields/relationship/query/key=field_other_accessories', __CLASS__ . '::acf_relationship_filter');
     }
+    add_action('wp_ajax_related_accessories_backlinks', __NAMESPACE__ . '\Admin::wp_ajax_related_accessories_backlinks');
 
     if (is_admin()) {
       return;
