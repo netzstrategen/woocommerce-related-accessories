@@ -1,5 +1,6 @@
 /* global jQuery */
-jQuery(document).ready(($) => {
+/* eslint-disable no-invalid-this */
+jQuery(document).ready(function($) {
   /**
    * Gets related accessories displayed items.
    *
@@ -18,10 +19,11 @@ jQuery(document).ready(($) => {
   /**
    * Toggle related accessories slideshows.
    */
-  $('.related-accessories select, .related-accessories--summary select').on('change', function toggleAccessories() {
+  // eslint-disable-next-line max-len
+  $('.related-accessories select, .related-accessories--summary select').on('change', function() {
     const displayItems = getItemAmount($(this).parent().attr('class'));
     $(this).siblings('[class|="slideshow"]').hide('fast');
-    $(this).siblings(`.slideshow-${this.value}`).show(() => {
+    $(this).siblings('.slideshow-' + this.value).show(function() {
       const $slider = $(this);
       $slider.flexslider({
         animation: 'slide',
@@ -40,7 +42,7 @@ jQuery(document).ready(($) => {
       // for the variation sliders.
       $slider.find('.js-gallerya-slider.flickity-enabled').flickity('resize');
 
-      $(window).resize(() => {
+      $(window).resize(function() {
         const gridSize = getItemAmount();
         // Ensure slider to display correct amount of items.
         // Even if the item width is set via CSS, Flexslider does not know
@@ -58,7 +60,8 @@ jQuery(document).ready(($) => {
     // Show/Hide reset button.
     if (this.value !== '') {
       $('#reset_related_accessories').show();
-    } else {
+    }
+    else {
       $('#reset_related_accessories').hide();
     }
   });
@@ -68,7 +71,7 @@ jQuery(document).ready(($) => {
   /**
    * Removes Flickity buttons if slideshow elements are less than 3.
    */
-  $('.related-products__slider .flickity-slider').each(function adjustSliderButtons() {
+  $('.related-products__slider .flickity-slider').each(function() {
     if ($(this).children('li').length < 3 && $(window).width() > 768) {
       // eslint-disable-next-line max-len
       $(this).closest('.related-products__slider').children('.flickity-button').hide();
@@ -78,33 +81,30 @@ jQuery(document).ready(($) => {
   /**
    * Re-initializes gallerya lightbox after quick view is displayed.
    */
-  $(document).on('qv_loader_stop', () => {
+  $(document).on('qv_loader_stop', function() {
     // Prevents header to partially cover quick view.
     if (!$('.site-header').hasClass('site-header--collapsed')) {
       const headerHeight = $('.site-header').height();
-      $('.yith-wcqv-wrapper').css('margin-top', `${headerHeight + 20}px`);
+      $('.yith-wcqv-wrapper').css('margin-top', headerHeight + 20 + 'px');
     }
-    // Support for lightgallery.
-    if (typeof $.fn.lightGallery === 'function') {
-      $('.js-gallerya-lightbox').lightGallery({
-        thumbnail: true,
-        showThumbByDefault: false,
-        subHtmlSelectorRelative: true,
-        selector: '.gallerya__image > a',
-      });
-      $('.woocommerce-product-gallery').lightGallery({
-        thumbnail: true,
-        showThumbByDefault: false,
-        subHtmlSelectorRelative: true,
-        selector: '.woocommerce-product-gallery__image > a',
-      });
-    }
+    $('.js-gallerya-lightbox').lightGallery({
+      thumbnail: true,
+      showThumbByDefault: false,
+      subHtmlSelectorRelative: true,
+      selector: '.gallerya__image > a',
+    });
+    $('.woocommerce-product-gallery').lightGallery({
+      thumbnail: true,
+      showThumbByDefault: false,
+      subHtmlSelectorRelative: true,
+      selector: '.woocommerce-product-gallery__image > a',
+    });
   });
 
   /**
    * Reset related accessories button.
    */
-  $('#reset_related_accessories').on('click', function reset(e) {
+  $('#reset_related_accessories').on('click', function(e) {
     e.preventDefault();
     $('.related-accessories--summary select').val('');
     $('.related-accessories--summary [class|="slideshow"]').hide('fast');

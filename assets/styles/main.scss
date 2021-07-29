@@ -1,8 +1,8 @@
 .related-accessories,
 .related-accessories--summary {
   padding: 10px 15px;
+  border-width:1px;
   border-style: solid;
-  border-width: 1px;
   border-radius: 2px;
 }
 
@@ -10,12 +10,12 @@
   margin-top: -30px;
 }
 
-[class^='related-accessories'] {
+[class^="related-accessories"] {
   h3 {
     margin-top: 0;
   }
 
-  [class|='slideshow'] {
+  [class|="slideshow"] {
     display: none;
   }
 
@@ -38,9 +38,9 @@
   .slides {
     li.product {
       position: relative;
-      flex: 0 0 auto;
-      flex-direction: column;
       margin: 0;
+      flex-direction: column;
+      flex: 0 0 auto;
     }
   }
 
@@ -62,11 +62,11 @@
     #yith-quick-view-close {
       width: 40px;
       height: 40px;
-      font-size: 20px;
-      line-height: 40px;
-      background-color: #fff;
       border-radius: 50%;
+      line-height: 40px;
+      font-size: 20px;
       opacity: 1;
+      background-color: #fff;
     }
 
     #yith-quick-view-content {
@@ -81,7 +81,7 @@
       margin: 20px;
     }
 
-    [class*='woocommerce-Tabs-panel--'] {
+    [class*="woocommerce-Tabs-panel--"] {
       display: none;
     }
 
@@ -99,8 +99,8 @@
 
 .woocommerce-info-related-accessories {
   padding: 10px 15px;
+  border-width: 1px;
+  border-style: solid;
   margin-bottom: 30px;
   background-color: #fcfcfc;
-  border-style: solid;
-  border-width: 1px;
 }
