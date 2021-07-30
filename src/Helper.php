@@ -5,6 +5,9 @@ namespace Netzstrategen\WooCommerceRelatedAccessories;
 class Helper {
 
   public static function getFieldParameters(string $name, string $label, bool $field, string $taxonomy): array {
+    if (!isset($taxonomy)) {
+      $taxonomy = $name;
+    }
     return [
       'key' => $field ? 'field_' . strtr($name, '-', '_') : $name,
       'label' => __($label, Plugin::L10N),
