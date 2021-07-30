@@ -49,33 +49,33 @@ class Plugin {
       // Determine fields based on site.
       if (MOEVE_SHOP === 'GACO') {
         $fields = [
-          ['pads_and_pillows', 'Pads and pillows', true],
-          ['covers', 'Covers', true],
-          ['care_products', 'Care products', true],
-          ['spare_parts', 'Spare parts', true],
-          ['parasol_accessories', 'Parasol accessories', false], // no field_ in name
-          ['beach_chair_accessories', 'Beach chair accessories', false], // no field_ in name
-          ['other_accessories', 'Other accessories', true]
+          ['pads_and_pillows', 'Pads and pillows', true, 'auflagen-kissen'],
+          ['covers', 'Covers', true, 'schutzhuellen'],
+          ['care_products', 'Care products', true, 'pflegemittel'],
+          ['spare_parts', 'Spare parts', true, 'ersatzteile'],
+          ['parasol_accessories', 'Parasol accessories', true, 'sonnenschirm-zubehoer', false], // no field_ in name
+          ['beach_chair_accessories', 'Beach chair accessories', true, 'strandkorb-zubehoer', false], // no field_ in name
+          ['other_accessories', 'Other accessories', true, 'sonstiges-zubehoer']
         ];
       }
       elseif (MOEVE_SHOP === 'WOPA') {
         $fields = [
-          ['zubehoer', 'Zubehör', true],
-          ['pflegemittel', 'Pflegemittel', true],
-          ['accessoires_und_deko', 'Accessoires & Deko', true]
+          ['zubehoer', 'Zubehör', true, 'zubehoer'],
+          ['pflegemittel', 'Pflegemittel', true, 'pflegemittel'],
+          ['accessoires_und_deko', 'Accessoires & Deko', true, 'accessoires-und-deko']
         ];
       }
       elseif (MOEVE_SHOP === 'LART') {
         $fields = [
-          ['leuchtmittel', 'Leuchtmittel', true],
-          ['led_lampen', 'LED-Lampen', true],
-          ['leuchtenzubehoer', 'Leuchtenzubehör', true],
-          ['zubehoer', 'Zubehoer', true],
-          ['zubehoer_occhio', 'Zubehör Occhio', true],
-          ['zubehoer_top_light', 'Zubehör Top Light', true],
-          ['zubehoer_bopp', 'Zubehör Bopp', true],
-          ['baldachine', 'Baldachine', true],
-          ['leuchtenschirme', 'Leuchtenschirme', true]
+          ['leuchtmittel', 'Leuchtmittel', true, 'leuchtmittel'],
+          ['led_lampen', 'LED-Lampen', true, 'led-lampen'],
+          ['leuchtenzubehoer', 'Leuchtenzubehör', true, 'leuchtenzubehoer'],
+          ['zubehoer', 'Zubehoer', true, 'zubehoer'],
+          ['zubehoer_occhio', 'Zubehör Occhio', true, 'zubehoer-occhio'],
+          ['zubehoer_top_light', 'Zubehör Top Light', true, 'zubehoer-top-light'],
+          ['zubehoer_bopp', 'Zubehör Bopp', true, 'zubehoer-bopp'],
+          ['baldachine', 'Baldachine', true, 'baldachine'],
+          ['leuchtenschirme', 'Leuchtenschirme', true, 'leuchtenschirme']
         ];
       }
       else {
@@ -114,7 +114,18 @@ class Plugin {
   public static function register_acf(array $fields) {
     $fieldParameters = [];
     foreach ($fields as $field) {
-      $fieldParameters[] = Helper::getFieldParameters($field[0], $field[1], $field[2]);
+      list($name, $label, $field, $taxonomy) = $field;
+      $fieldParameters[] = [
+        'key' => $field ? 'field_' . strtr($name, '-', '_') : $name,
+        'label' => $label,
+        'name' => $name,
+        'type' => 'relationship',
+        'post_type' => ['product'],
+        'taxonomy' => ['product_cat:' . $taxonomy],
+        'filters' => ['search', 'post_type', 'taxonomy'],
+        'elements' => ['featured_image'],
+        'return_format' => 'id',
+      ];
     }
     acf_add_local_field_group([
       'key' => 'group_related_accessories',
