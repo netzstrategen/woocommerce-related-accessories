@@ -53,8 +53,8 @@ class Plugin {
           ['covers', 'Covers', true, 'schutzhuellen'],
           ['care_products', 'Care products', true, 'pflegemittel'],
           ['spare_parts', 'Spare parts', true, 'ersatzteile'],
-          ['parasol_accessories', 'Parasol accessories', true, 'sonnenschirm-zubehoer', false], // no field_ in name
-          ['beach_chair_accessories', 'Beach chair accessories', true, 'strandkorb-zubehoer', false], // no field_ in name
+          ['parasol_accessories', 'Parasol accessories', false, 'sonnenschirm-zubehoer'], // no field_ in name
+          ['beach_chair_accessories', 'Beach chair accessories', false, 'strandkorb-zubehoer'], // no field_ in name
           ['other_accessories', 'Other accessories', true, 'sonstiges-zubehoer']
         ];
       }
