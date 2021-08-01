@@ -93,7 +93,8 @@ class Plugin {
       add_filter('acf/fields/relationship/query/key=field_other_accessories', __CLASS__ . '::acf_relationship_filter');
     }
     add_action('wp_ajax_related_accessories_backlinks', __NAMESPACE__ . '\Admin::wp_ajax_related_accessories_backlinks');
-    add_action( 'load-post.php', __NAMESPACE__ . '\Admin::related_accessories_backlinks_meta_box_setup' );
+    add_action('load-post.php', __NAMESPACE__ . '\Admin::related_accessories_backlinks_meta_box_setup');
+    add_action('admin_footer', __NAMESPACE__ . '\Admin::related_accessories_backlinks_js' );
 
     if (is_admin()) {
       return;
