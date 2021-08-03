@@ -32,8 +32,7 @@ class Admin {
     global $wpdb;
     $postId = intval($_POST['post']);
     $html = '<ol>';
-    if($postId)
-    {
+    if ($postId) {
       $params = [
         'post_type' => ['product', 'product_variant'],
         'post_status' => 'any',
