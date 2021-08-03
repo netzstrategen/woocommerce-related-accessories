@@ -76,7 +76,7 @@ class Admin {
   public static function related_accessories_backlinks_add_meta_box() {
     add_meta_box(
       'related-accessories-backlinks',
-      esc_html__( 'Related Accessories', 'woocommerce-related-accessories' ).' backlinks',
+      __('Related Accessories Backlinks', Plugin::L10N),
       __CLASS__ . '::related_accessories_backlinks_meta_box',
       'product',
       'advanced',
