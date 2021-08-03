@@ -55,7 +55,9 @@ class Admin {
         }
         $html .= '</ol>';
       }
-      else $html = 'No results';
+      else {
+        $html = 'No results';
+      }
     }
     echo $html;
     wp_die();
