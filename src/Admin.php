@@ -66,7 +66,7 @@ class Admin {
    * Related accessories backlinks meta box action.
    */
   public static function related_accessories_backlinks_meta_box_setup() {
-    add_action( 'add_meta_boxes', __CLASS__ . '::related_accessories_backlinks_add_meta_box' );
+    add_action('add_meta_boxes', __CLASS__ . '::related_accessories_backlinks_add_meta_box');
   }
 
   /**
