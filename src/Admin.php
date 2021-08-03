@@ -37,7 +37,8 @@ class Admin {
         'post_type' => ['product', 'product_variant'],
         'post_status' => 'any',
         'meta_query' => [
-          ['key' => 'field_group_related_accessories_care_products',
+          [
+            'key' => 'field_group_related_accessories_care_products',
             'value' => '"' . $postId . '"',
             'compare' => 'LIKE',
           ],
