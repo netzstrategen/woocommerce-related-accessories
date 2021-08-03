@@ -46,7 +46,6 @@ class Admin {
         'posts_per_page' => -1,
       ];
       $wc_query = new \WP_Query($params);
-      global $post, $product;
       if ($wc_query->have_posts()) {
         while ($wc_query->have_posts()) {
           $wc_query->the_post();
