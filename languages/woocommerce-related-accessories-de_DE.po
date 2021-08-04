@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: woocommerce-moeve\n"
 "POT-Creation-Date: 2019-05-23 11:25+0200\n"
-"PO-Revision-Date: 2021-08-02 17:04+0200\n"
+"PO-Revision-Date: 2021-08-10 08:52+0200\n"
 "Last-Translator: Joram Declerck <joram@netzstrategen.com>\n"
 "Language-Team: netzstrategen\n"
 "Language: de_DE\n"
@@ -31,13 +31,21 @@ msgstr ""
 "die Plugins WooCommerce, ACF Pro sowie YITH Quick View installiert und "
 "aktiviert sind."
 
-#: src/Admin.php:91
+#: src/AdminBacklinks.php:21
 msgid "Load"
 msgstr "Laden"
 
-#: src/Admin.php:101
+#: src/AdminBacklinks.php:33
 msgid "Loading"
 msgstr "Wird geladen"
+
+#: src/AdminBacklinks.php:53
+msgid "Related Accessories Backlinks"
+msgstr "Zubehör Backlinks"
+
+#: src/AdminBacklinks.php:92
+msgid "No results"
+msgstr "Keine Ergebnisse"
 
 #: src/Plugin.php:82
 msgid "Related Accessories"
