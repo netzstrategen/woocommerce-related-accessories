@@ -7,6 +7,8 @@
 
 namespace Netzstrategen\WooCommerceRelatedAccessories;
 
+use Netzstrategen\WooCommerceRelatedAccessories\Helper;
+
 /**
  * Main front-end functionality.
  */
@@ -47,13 +49,13 @@ class Plugin {
       // Determine fields based on site.
       if (MOEVE_SHOP === 'GACO') {
         $fields = [
-          ['pads_and_pillows', 'Auflagen & Kissen', true, 'auflagen-kissen'],
-          ['covers', 'Schutzhüllen', true, 'schutzhuellen'],
-          ['care_products', 'Pflegemittel', true, 'pflegemittel'],
-          ['spare_parts', 'Ersatzteile', true, 'ersatzteile'],
-          ['parasol_accessories', 'Sonnenschirm-Zubehör', false, 'sonnenschirm-zubehoer'], // no field_ in name
-          ['beach_chair_accessories', 'Strandkorb-Zubehör', false, 'strandkorb-zubehoer'], // no field_ in name
-          ['other_accessories', 'Sonstiges Zubehör', true, 'sonstiges-zubehoer']
+          ['pads_and_pillows', 'Pads and pillows', true, 'auflagen-kissen'],
+          ['covers', 'Covers', true, 'schutzhuellen'],
+          ['care_products', 'Care products', true, 'pflegemittel'],
+          ['spare_parts', 'Spare parts', true, 'ersatzteile'],
+          ['parasol_accessories', 'Parasol accessories', false, 'sonnenschirm-zubehoer'], // no field_ in name
+          ['beach_chair_accessories', 'Beach chair accessories', false, 'strandkorb-zubehoer'], // no field_ in name
+          ['other_accessories', 'Other accessories', true, 'sonstiges-zubehoer']
         ];
       }
       elseif (MOEVE_SHOP === 'WOPA') {
