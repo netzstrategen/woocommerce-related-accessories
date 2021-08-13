@@ -120,7 +120,7 @@ class Plugin {
       list($name, $label, $field, $taxonomy) = $field;
       $fieldParameters[] = [
         'key' => $field ? 'field_' . strtr($name, '-', '_') : $name,
-        'label' => $label,
+        'label' => __($label, Plugin::L10N),
         'name' => $name,
         'type' => 'relationship',
         'post_type' => ['product'],

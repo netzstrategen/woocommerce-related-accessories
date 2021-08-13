@@ -1,8 +1,0 @@
-{
-  "extends": [
-    "@netzstrategen/stylelint-config"
-  ],
-  "rules": {
-    "selector-max-id": null
-  }
-}
