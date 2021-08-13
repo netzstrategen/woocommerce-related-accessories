@@ -8,7 +8,7 @@
 namespace Netzstrategen\WooCommerceRelatedAccessories;
 
 /**
- * Administrative back-end functionality.
+ * Adds admin meta box showing backlinks on product edit screen.
  */
 class AdminBacklinks {
 
