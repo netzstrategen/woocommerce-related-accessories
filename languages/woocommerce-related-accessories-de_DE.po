@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: woocommerce-moeve\n"
 "POT-Creation-Date: 2019-05-23 11:25+0200\n"
-"PO-Revision-Date: 2021-08-10 08:52+0200\n"
+"PO-Revision-Date: 2021-08-16 11:49+0200\n"
 "Last-Translator: Joram Declerck <joram@netzstrategen.com>\n"
 "Language-Team: netzstrategen\n"
 "Language: de_DE\n"
@@ -41,7 +41,7 @@ msgstr "Wird geladen"
 
 #: src/AdminBacklinks.php:53
 msgid "Related Accessories Backlinks"
-msgstr "Zubehör Backlinks"
+msgstr "Zubehör Rückverlinkungen"
 
 #: src/AdminBacklinks.php:92
 msgid "No results"
