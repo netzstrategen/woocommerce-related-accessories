@@ -1,0 +1,11 @@
+{
+    "name": "netzstrategen/woocommerce-related-accessories",
+    "type": "wordpress-plugin",
+    "description": "Displays a list of related accessories on product single page.",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=7.4.0",
+        "composer/installers": "^1"
+    },
+    "version": "dev-master"
+}
