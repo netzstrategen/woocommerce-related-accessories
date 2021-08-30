@@ -79,7 +79,7 @@ class AdminBacklinks {
         'post_status' => 'any',
         'meta_query' => [
           'relation' => 'OR',
-          $meta_queries,
+          ...$meta_queries,
         ],
         'posts_per_page' => -1,
       ];
