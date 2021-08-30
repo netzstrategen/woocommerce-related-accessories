@@ -2,7 +2,7 @@
 
 /*
   Plugin Name: WooCommerce Related Accessories
-  Version: 1.1.6
+  Version: 1.1.7
   Text Domain: woocommerce-related-accessories
   Description: Displays a list of related accessories on product single page.
   Author: netzstrategen
