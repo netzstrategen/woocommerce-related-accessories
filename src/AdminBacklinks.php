@@ -63,17 +63,23 @@ class AdminBacklinks {
    */
   public static function wp_ajax_related_accessories_backlinks() {
     global $wpdb;
-    $postId = intval($_POST['post']);
-    if ($postId) {
+    $post_id = intval($_POST['post']);
+    $field_names = wc_list_pluck(acf_get_local_fields('field_group_related_accessories'), 'name');
+    $meta_queries = [];
+    foreach ($field_names as $field_name) {
+      $meta_queries[] = [
+        'key' => 'field_group_related_accessories_' . $field_name,
+        'value' => '"' . $post_id . '"',
+        'compare' => 'LIKE',
+      ];
+    }
+    if ($post_id) {
       $params = [
         'post_type' => ['product', 'product_variant'],
         'post_status' => 'any',
         'meta_query' => [
-          [
-            'key' => 'field_group_related_accessories_care_products',
-            'value' => '"' . $postId . '"',
-            'compare' => 'LIKE',
-          ],
+          'relation' => 'OR',
+          ...$meta_queries,
         ],
         'posts_per_page' => -1,
       ];
