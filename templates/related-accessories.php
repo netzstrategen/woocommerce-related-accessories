@@ -26,7 +26,7 @@ global $product, $post;
         }
       ?>
       <?php if ($group_name !== 'all') : ?>
-        <option value="<?= $group_name ?>"><?= __(ucfirst(str_replace('_', ' ', $group_name)), Plugin::L10N) ?></option>
+        <option value="<?= $group_name ?>"><?= __($fields_labels['field_' . $group_name], Plugin::L10N) ?></option>
       <?php endif; ?>
     <?php endforeach; ?>
   </select>
