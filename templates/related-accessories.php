@@ -25,8 +25,12 @@ global $product, $post;
           continue;
         }
       ?>
-      <?php if ($group_name !== 'all') : ?>
-        <option value="<?= $group_name ?>"><?= __($fields_labels['field_' . $group_name], Plugin::L10N) ?></option>
+      <?php if ($group_name !== 'all') :
+        $field_label = array_filter($fields_labels, function ($field, $index) use ($group_name) {
+          return $index === $group_name || $index === 'field_' . $group_name;
+        }, ARRAY_FILTER_USE_BOTH);
+        ?>
+        <option value="<?= $group_name ?>"><?= __(reset($field_label), Plugin::L10N) ?></option>
       <?php endif; ?>
     <?php endforeach; ?>
   </select>
