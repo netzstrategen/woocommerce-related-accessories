@@ -26,7 +26,7 @@ global $product, $post;
         }
       ?>
       <?php if ($group_name !== 'all') :
-        $field_label = array_filter($fields_labels, function ($field, $index) use ($group_name) {
+        $field_label = array_filter((array) $fields_labels, function ($field, $index) use ($group_name) {
           return $index === $group_name || $index === 'field_' . $group_name;
         }, ARRAY_FILTER_USE_BOTH);
         ?>
