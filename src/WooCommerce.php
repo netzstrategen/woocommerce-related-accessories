@@ -58,6 +58,7 @@ class WooCommerce {
 
     $related_accessories = static::buildRelatedProductsView($related_accessories_ids);
     Plugin::renderTemplate(['templates/related-accessories.php'], [
+      'fields_labels' => wc_list_pluck(acf_get_local_fields('field_group_related_accessories'), 'label'),
       'related_accessories' => $related_accessories,
       'is_notice_template' => TRUE,
     ]);
