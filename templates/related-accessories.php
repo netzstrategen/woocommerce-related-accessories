@@ -4,7 +4,13 @@ namespace Netzstrategen\WooCommerceRelatedAccessories;
 
 global $product, $post;
 
-?>
+$related_accessories_groups_count = 0;
+
+foreach ($related_accessories as $group_name => $accessories) {
+  if (!empty($accessories) && $group_name !== 'all') {
+    $related_accessories_groups_count++;
+  }
+} ?>
 
 <div class="related-accessories<?= $is_notice_template ? '' : '--summary' ?>">
   <?php if ($is_notice_template) : ?>
@@ -13,7 +19,7 @@ global $product, $post;
     <h3><?= __('Accessories & Extras', Plugin::L10N) ?></h3>
   <?php endif; ?>
 
-  <select>
+  <select <?php echo $is_notice_template && $related_accessories_groups_count <= 1 ? 'style="display: none;"' : ''; ?>>
     <?php if ($is_notice_template) : ?>
       <option value="all"><?= __('All related products', Plugin::L10N) ?></option>
     <?php else: ?>
