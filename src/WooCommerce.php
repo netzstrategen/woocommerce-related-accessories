@@ -51,11 +51,11 @@ class WooCommerce {
    *
    * @implements woocommerce_before_single_product
    */
-  public static function woocommerce_before_single_product() {
-    if (!static::$isAddedToCart || !$related_accessories_ids = static::getRelatedAccessoriesIds()) {
+  public static function woocommerce_before_single_product($force_render = FALSE) {
+    $related_accessories_ids = static::getRelatedAccessoriesIds();
+    if (!$force_render && (!static::$isAddedToCart || !$related_accessories_ids)) {
       return;
     }
-
     $related_accessories = static::buildRelatedProductsView($related_accessories_ids);
     Plugin::renderTemplate(['templates/related-accessories.php'], [
       'fields_labels' => wc_list_pluck(acf_get_local_fields('field_group_related_accessories'), 'label'),
