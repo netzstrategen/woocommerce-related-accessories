@@ -51,9 +51,24 @@ class WooCommerce {
    *
    * @implements woocommerce_before_single_product
    */
-  public static function woocommerce_before_single_product($force_render = FALSE) {
-    $related_accessories_ids = static::getRelatedAccessoriesIds();
-    if (!$force_render && (!static::$isAddedToCart || !$related_accessories_ids)) {
+  public static function woocommerce_before_single_product() {
+    if (!static::$isAddedToCart || !$related_accessories_ids = static::getRelatedAccessoriesIds()) {
+      return;
+    }
+    static::renderRelatedAccessories($related_accessories_ids);
+  }
+
+  /**
+   * Renders the related accessories.
+   *
+   * @param array $related_accessories_ids
+   *   (optional) The product IDs of the related accessories to render. If omitted,
+   *   the related accessories of the currently output product are output.
+   */
+  public static function renderRelatedAccessories(?array $related_accessories_ids = NULL) {
+    if (!isset($related_accessories_ids)) {
+      $related_accessories_ids = static::getRelatedAccessoriesIds();
+    }
       return;
     }
     $related_accessories = static::buildRelatedProductsView($related_accessories_ids);
