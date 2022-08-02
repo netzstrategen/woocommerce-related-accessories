@@ -52,30 +52,30 @@ class WooCommerce {
    * @implements woocommerce_before_single_product
    */
   public static function woocommerce_before_single_product() {
-    if (!static::$isAddedToCart || !$related_accessories_ids = static::getRelatedAccessoriesIds()) {
+    if (!static::$isAddedToCart && get_option('woocommerce_enable_ajax_add_to_cart') !== 'yes') {
       return;
     }
-    static::renderRelatedAccessories($related_accessories_ids);
+    static::renderRelatedAccessories();
   }
 
   /**
    * Renders the related accessories.
    *
    * @param array $related_accessories_ids
-   *   (optional) The product IDs of the related accessories to render. If omitted,
-   *   the related accessories of the currently output product are output.
+   *   (optional) The product IDs of the related accessories to render. If
+   *   omitted, the related accessories of the currently output product are
+   *   output.
    */
   public static function renderRelatedAccessories(?array $related_accessories_ids = NULL) {
     if (!isset($related_accessories_ids)) {
       $related_accessories_ids = static::getRelatedAccessoriesIds();
-    }
-      return;
     }
     $related_accessories = static::buildRelatedProductsView($related_accessories_ids);
     Plugin::renderTemplate(['templates/related-accessories.php'], [
       'fields_labels' => wc_list_pluck(acf_get_local_fields('field_group_related_accessories'), 'label'),
       'related_accessories' => $related_accessories,
       'is_notice_template' => TRUE,
+      'is_hidden' => get_option('woocommerce_enable_ajax_add_to_cart') === 'yes',
     ]);
   }
 

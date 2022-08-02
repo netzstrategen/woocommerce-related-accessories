@@ -12,7 +12,7 @@ foreach ($related_accessories as $group_name => $accessories) {
   }
 } ?>
 
-<div class="related-accessories<?= $is_notice_template ? '' : '--summary' ?>">
+<div class="related-accessories<?= $is_notice_template ? '' : '--summary' ?>" <?= $is_hidden ? 'style="display: none"' : '' ?> >
   <?php if ($is_notice_template) : ?>
     <h3><?= __('Matching accessories - order now:', Plugin::L10N) ?></h3>
   <?php else: ?>

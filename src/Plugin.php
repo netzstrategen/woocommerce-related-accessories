@@ -174,6 +174,12 @@ class Plugin {
     }
     wp_enqueue_style('related-accessories/custom', static::getBaseUrl() . '/dist/styles/main.css', FALSE);
     wp_enqueue_script('related-accessories/custom', static::getBaseUrl() . '/dist/scripts/main.js', ['jquery'], FALSE, TRUE);
+    // If add to cart via AJAX is enabled, we should render related accessories
+    // as hidden and only reveal them after the add to cart event, otherwise
+    // only on refresh after a product has been added.
+    wp_localize_script('related-accessories/custom', 'data', [
+      'isHidden' => get_option('woocommerce_enable_ajax_add_to_cart') === 'yes',
+    ]);
   }
 
   /**

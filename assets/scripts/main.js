@@ -64,7 +64,18 @@ jQuery(document).ready(function($) {
     else {
       $('#reset_related_accessories').hide();
     }
+
+    if (data.isHidden) {
+      // Shows hidden related accessories after product has been added to cart.
+      // This is for cases of AJAX add to cart functionality.
+      jQuery('body').on('added_to_cart', function() {
+        jQuery('html, body').animate({scrollTop: 0}, 400, function () {
+          jQuery('.single-product .related-accessories').slideDown();
+        });
+      });
+    }
   });
+
   // Forces related accessories notice slideshow to be shown on page load.
   $('.related-accessories select').change();
 
