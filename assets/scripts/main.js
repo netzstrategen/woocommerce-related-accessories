@@ -111,7 +111,7 @@ jQuery(document).ready(function($) {
     $(this).hide();
   });
 
-  // Triggers rela
+  // Triggers related accessories reveal on product added to cart via AJAX.
   $('body').on('added_to_cart', function() {
     const addToCartButton = $('.single_add_to_cart_button');
     if (addToCartButton.hasClass('ajax_add_to_cart')) {
