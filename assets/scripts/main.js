@@ -112,12 +112,30 @@ jQuery(document).ready(function($) {
   });
 
   // Triggers related accessories reveal on product added to cart via AJAX.
+  // This will extend to full screen with and slide up to draw customer's
+  // attention.
   $('body').on('added_to_cart', function() {
-    const addToCartButton = $('.single_add_to_cart_button');
-    if (addToCartButton.hasClass('ajax_add_to_cart')) {
-      const accessoriesSelect = $('.related-accessories--summary select');
-      accessoriesSelect.find('option')[1].selected=true;
-      accessoriesSelect.change();
+    const addToCartButton = $('.single_add_to_cart_button.ajax_add_to_cart');
+    if (!addToCartButton.length) {
+      return;
+    }
+    const accessoriesWrapper = $('.related-accessories--summary');
+    if (addToCartButton.hasClass('ajax_add_to_cart') && !accessoriesWrapper.hasClass('related-accessories--popout')) {
+      const productMeta = $('.product-summary .product_meta');
+      const accessoriesSelect = accessoriesWrapper.find('select');
+      if (accessoriesSelect.length) {
+        productMeta.slideUp();
+        accessoriesSelect.find('option')[1].selected=true;
+        accessoriesSelect.change();
+        accessoriesWrapper.addClass('related-accessories--popout').prepend('<a href="#" class="close-popout">ⓧ</a>');
+        $('.close-popout').on('click', function(e) {
+          e.preventDefault();
+          accessoriesWrapper.removeClass('related-accessories--popout');
+          $('#reset_related_accessories').trigger('click');
+          $('.close-popout').remove();
+          productMeta.slideDown();
+        });
+      }
     }
   });
 });

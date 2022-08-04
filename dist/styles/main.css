@@ -1,35 +1,47 @@
-/**
- * 1. Use `!important` to override values set by flexslider.
- */
-body[class*="woocommerce"] .related-accessories,
-body[class*="woocommerce"] .related-accessories--summary {
+@charset "UTF-8";
+.related-accessories,
+.related-accessories--summary {
   padding: 10px 15px;
   border-width: 1px;
   border-style: solid;
   border-radius: 2px; }
 
-body[class*="woocommerce"] .related-accessories--summary {
+.related-accessories--summary {
   margin-top: -30px; }
 
-body[class*="woocommerce"] [class^="related-accessories"] h3 {
+.related-accessories--popout {
+  margin-top: -12px; }
+  @media screen and (min-width: 992px) {
+    .related-accessories--popout {
+      margin-left: -404px; } }
+  @media screen and (min-width: 1200px) {
+    .related-accessories--popout {
+      margin-left: -487px; } }
+  .related-accessories--popout a.close-popout {
+    content: "ⓧ";
+    float: right;
+    font-size: 21px;
+    color: #000; }
+
+[class^="related-accessories"] h3 {
   margin-top: 0; }
 
-body[class*="woocommerce"] [class^="related-accessories"] [class|="slideshow"] {
+[class^="related-accessories"] [class|="slideshow"] {
   display: none; }
 
-body[class*="woocommerce"] [class^="related-accessories"] select {
+[class^="related-accessories"] select {
   width: 100%; }
 
-body[class*="woocommerce"] [class^="related-accessories"] #reset_related_accessories {
+[class^="related-accessories"] #reset_related_accessories {
   display: block;
   margin-bottom: 10px;
   font-size: 0.83em;
   line-height: 28px;
   text-align: right; }
 
-body[class*="woocommerce"] .related-accessories__slideshow {
+.related-accessories__slideshow {
   position: relative; }
-  body[class*="woocommerce"] .related-accessories__slideshow .slides li.product {
+  .related-accessories__slideshow .slides li.product {
     position: relative;
     margin: 0;
     -webkit-box-orient: vertical;
@@ -39,10 +51,10 @@ body[class*="woocommerce"] .related-accessories__slideshow {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto; }
-  body[class*="woocommerce"] .related-accessories__slideshow .flex-next {
+  .related-accessories__slideshow .flex-next {
     -webkit-transform-origin: top right;
             transform-origin: top right; }
-  body[class*="woocommerce"] .related-accessories__slideshow .flex-prev {
+  .related-accessories__slideshow .flex-prev {
     -webkit-transform-origin: top left;
             transform-origin: top left; }
 
@@ -71,7 +83,7 @@ body[class*="woocommerce"] .related-accessories__slideshow {
     #yith-quick-view-modal .yith-wcqv-main .woocommerce-Tabs-panel--description {
       display: block; }
   @media screen and (max-width: 768px) {
-    #yith-quick-view-modal body[class*="woocommerce"] ul.flickity.products li {
+    #yith-quick-view-modal ul.flickity.products li {
       width: 100%; } }
 
 .woocommerce-info-related-accessories {
