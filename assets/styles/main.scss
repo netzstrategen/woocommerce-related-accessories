@@ -6,6 +6,11 @@
   border-radius: 2px;
 }
 
+.related-accessories--summary {
+  position: relative;
+  z-index: 100;
+}
+
 .related-accessories {
   &--summary {
     margin-top: -30px;

@@ -125,14 +125,20 @@ jQuery(document).ready(function($) {
       const accessoriesSelect = accessoriesWrapper.find('select');
       if (accessoriesSelect.length) {
         productMeta.slideUp();
-        accessoriesSelect.find('option')[1].selected=true;
+        const accessoriesSelectFirstOption = accessoriesSelect.find('option').eq(0);
+        const accessoriesSelectFirstOptionInitialText = accessoriesSelectFirstOption.text();
+        const accessoriesSelectFirstOptionAfterAddToCartText = accessoriesSelectFirstOption.data('add-to-cart-ajax-text')
+        accessoriesSelectFirstOption.text(accessoriesSelectFirstOptionAfterAddToCartText).val('all').prop('selected', true);
         accessoriesSelect.change();
         accessoriesWrapper.addClass('related-accessories--popout').prepend('<a href="#" class="close-popout">ⓧ</a>');
+
         $('.close-popout').on('click', function(e) {
           e.preventDefault();
+          accessoriesSelectFirstOption.text(accessoriesSelectFirstOptionInitialText).val('').prop('selected', true);
           accessoriesWrapper.removeClass('related-accessories--popout');
           $('#reset_related_accessories').trigger('click');
           $('.close-popout').remove();
+          $('#reset_related_accessories').show();
           productMeta.slideDown();
         });
       }
