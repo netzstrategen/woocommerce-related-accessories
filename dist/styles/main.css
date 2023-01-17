@@ -16,17 +16,7 @@
   margin-top: -30px;
 }
 .related-accessories--popout {
-  margin-top: -12px;
-}
-@media screen and (min-width: 992px) {
-  .related-accessories--popout {
-    margin-left: -404px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .related-accessories--popout {
-    margin-left: -487px;
-  }
+  margin: 15px;
 }
 .related-accessories--popout a.close-popout {
   content: "ⓧ";

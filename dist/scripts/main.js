@@ -119,11 +119,16 @@ jQuery(document).ready(function ($) {
     if (!addToCartButton.length) {
       return;
     }
+    var singleProductSummary = $('.single-product-summary');
     var accessoriesWrapper = $('.related-accessories--summary');
     if (addToCartButton.hasClass('ajax_add_to_cart') && !accessoriesWrapper.hasClass('related-accessories--popout')) {
       var productMeta = $('.product-summary .product_meta');
       var accessoriesSelect = accessoriesWrapper.find('select');
       if (accessoriesSelect.length) {
+        singleProductSummary.prepend(accessoriesWrapper);
+        $('html', 'body').animate({
+          scrollTop: 0
+        }, 500);
         productMeta.slideUp();
         var accessoriesSelectFirstOption = accessoriesSelect.find('option').eq(0);
         var accessoriesSelectFirstOptionInitialText = accessoriesSelectFirstOption.text();
@@ -133,6 +138,7 @@ jQuery(document).ready(function ($) {
         accessoriesWrapper.addClass('related-accessories--popout').prepend('<a href="#" class="close-popout">ⓧ</a>');
         $('.close-popout').on('click', function (e) {
           e.preventDefault();
+          accessoriesWrapper.insertAfter(productMeta);
           accessoriesSelectFirstOption.text(accessoriesSelectFirstOptionInitialText).val('').prop('selected', true);
           accessoriesWrapper.removeClass('related-accessories--popout');
           $('#reset_related_accessories').trigger('click');

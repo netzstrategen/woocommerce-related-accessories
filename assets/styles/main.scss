@@ -17,15 +17,7 @@
   }
 
   &--popout {
-    margin-top: -12px;
-
-    @media screen and (min-width: 992px) {
-      margin-left: -404px;
-    }
-
-    @media screen and (min-width: 1200px) {
-      margin-left: -487px;
-    }
+    margin: 15px;
 
     a.close-popout {
       content: "ⓧ";

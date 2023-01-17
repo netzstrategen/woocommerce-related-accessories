@@ -119,11 +119,16 @@ jQuery(document).ready(function($) {
     if (!addToCartButton.length) {
       return;
     }
+    const singleProductSummary = $('.single-product-summary');
     const accessoriesWrapper = $('.related-accessories--summary');
     if (addToCartButton.hasClass('ajax_add_to_cart') && !accessoriesWrapper.hasClass('related-accessories--popout')) {
       const productMeta = $('.product-summary .product_meta');
       const accessoriesSelect = accessoriesWrapper.find('select');
       if (accessoriesSelect.length) {
+        singleProductSummary.prepend(accessoriesWrapper);
+        $('html', 'body').animate({
+          scrollTop: 0
+        }, 500);
         productMeta.slideUp();
         const accessoriesSelectFirstOption = accessoriesSelect.find('option').eq(0);
         const accessoriesSelectFirstOptionInitialText = accessoriesSelectFirstOption.text();
@@ -134,6 +139,7 @@ jQuery(document).ready(function($) {
 
         $('.close-popout').on('click', function(e) {
           e.preventDefault();
+          accessoriesWrapper.insertAfter(productMeta);
           accessoriesSelectFirstOption.text(accessoriesSelectFirstOptionInitialText).val('').prop('selected', true);
           accessoriesWrapper.removeClass('related-accessories--popout');
           $('#reset_related_accessories').trigger('click');
