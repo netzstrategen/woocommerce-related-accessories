@@ -126,7 +126,7 @@ jQuery(document).ready(function ($) {
       var accessoriesSelect = accessoriesWrapper.find('select');
       if (accessoriesSelect.length) {
         singleProductSummary.prepend(accessoriesWrapper);
-        $('html', 'body').animate({
+        $('html, body').animate({
           scrollTop: 0
         }, 500);
         productMeta.slideUp();
