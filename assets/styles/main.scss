@@ -7,12 +7,31 @@
 }
 
 .related-accessories--summary {
-  margin-top: -30px;
+  position: relative;
+  z-index: 100;
+}
+
+.related-accessories {
+  &--summary {
+    margin-top: -30px;
+  }
+
+  &--popout {
+    margin: 15px;
+
+    a.close-popout {
+      content: "ⓧ";
+      float: right;
+      font-size: 21px;
+      color: #000;
+    }
+  }
 }
 
 [class^="related-accessories"] {
   h3 {
     margin-top: 0;
+
   }
 
   [class|="slideshow"] {

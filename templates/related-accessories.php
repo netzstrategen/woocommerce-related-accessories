@@ -23,7 +23,7 @@ foreach ($related_accessories as $group_name => $accessories) {
     <?php if ($is_notice_template) : ?>
       <option value="all"><?= __('All related products', Plugin::L10N) ?></option>
     <?php else: ?>
-      <option value=""><?= __('Choose an option', 'woocommerce') ?></option>
+      <option value="" data-add-to-cart-ajax-text="<?= __('All related products', Plugin::L10N)  ?>"><?= __('Choose an option', 'woocommerce') ?></option>
     <?php endif; ?>
     <?php foreach ($related_accessories as $group_name => $accessories) : ?>
       <?php
