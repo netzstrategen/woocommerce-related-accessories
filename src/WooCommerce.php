@@ -13,7 +13,7 @@ namespace Netzstrategen\WooCommerceRelatedAccessories;
 class WooCommerce {
 
   /**
-   * @var boolean
+   * @var bool
    */
   private static $isAddedToCart;
 
@@ -71,7 +71,8 @@ class WooCommerce {
    *   List of related accessories IDs.
    */
   public static function getRelatedAccessoriesIds() {
-    $related_accessories_ids = array_filter(get_field('field_group_related_accessories') ?: []);
+    global $product;
+    $related_accessories_ids = array_filter(get_field('field_group_related_accessories', $product->get_id()) ?: []);
     return apply_filters(Plugin::PREFIX . '/get_related_accessories_ids', $related_accessories_ids);
   }
 

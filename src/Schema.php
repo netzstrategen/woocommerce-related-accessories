@@ -13,19 +13,19 @@ namespace Netzstrategen\WooCommerceRelatedAccessories;
 class Schema {
 
   /**
-   * register_activation_hook() callback.
+   * Register_activation_hook() callback.
    */
   public static function activate() {
   }
 
   /**
-   * register_deactivation_hook() callback.
+   * Register_deactivation_hook() callback.
    */
   public static function deactivate() {
   }
 
   /**
-   * register_uninstall_hook() callback.
+   * Register_uninstall_hook() callback.
    */
   public static function uninstall() {
   }
