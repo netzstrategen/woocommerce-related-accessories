@@ -25,7 +25,7 @@ class GraphQL {
             ],
             'accessoriesIds' => [
               'type' => ['list_of' => 'Int'],
-              'description' => __('Related accessories ids', 'woocommerce-related-accessories'),
+              'description' => __('Related accessory ids', 'woocommerce-related-accessories'),
             ]
           ],
         ]
