@@ -49,33 +49,35 @@ class Plugin {
       // Determine fields based on site.
       if (MOEVE_SHOP === 'GACO') {
         $fields = [
-          ['pads_and_pillows', 'Pads and pillows', true, 'auflagen-kissen'],
-          ['covers', 'Covers', true, 'schutzhuellen'],
-          ['care_products', 'Care products', true, 'pflegemittel'],
-          ['spare_parts', 'Spare parts', true, 'ersatzteile'],
-          ['parasol_accessories', 'Parasol accessories', false, 'sonnenschirm-zubehoer'], // no field_ in name
-          ['beach_chair_accessories', 'Beach chair accessories', false, 'strandkorb-zubehoer'], // no field_ in name
-          ['other_accessories', 'Other accessories', true, 'sonstiges-zubehoer']
+          ['pads_and_pillows', 'Pads and pillows', TRUE, 'auflagen-kissen'],
+          ['covers', 'Covers', TRUE, 'schutzhuellen'],
+          ['care_products', 'Care products', TRUE, 'pflegemittel'],
+          ['spare_parts', 'Spare parts', TRUE, 'ersatzteile'],
+          // No field_ in name.
+          ['parasol_accessories', 'Parasol accessories', FALSE, 'sonnenschirm-zubehoer'],
+          // No field_ in name.
+          ['beach_chair_accessories', 'Beach chair accessories', FALSE, 'strandkorb-zubehoer'],
+          ['other_accessories', 'Other accessories', TRUE, 'sonstiges-zubehoer']
         ];
       }
       elseif (MOEVE_SHOP === 'WOPA') {
         $fields = [
-          ['zubehoer', 'Zubehör', true, 'zubehoer'],
-          ['pflegemittel', 'Pflegemittel', true, 'pflegemittel'],
-          ['accessoires_und_deko', 'Accessoires & Deko', true, 'accessoires-und-deko']
+          ['zubehoer', 'Zubehör', TRUE, 'zubehoer'],
+          ['pflegemittel', 'Pflegemittel', TRUE, 'pflegemittel'],
+          ['accessoires_und_deko', 'Accessoires & Deko', TRUE, 'accessoires-und-deko']
         ];
       }
       elseif (MOEVE_SHOP === 'LART') {
         $fields = [
-          ['leuchtmittel', 'Leuchtmittel', true, 'leuchtmittel'],
-          ['led_lampen', 'LED-Lampen', true, 'led-lampen'],
-          ['leuchtenzubehoer', 'Leuchtenzubehör', true, 'leuchtenzubehoer'],
-          ['zubehoer', 'Zubehoer', true, 'zubehoer'],
-          ['zubehoer_occhio', 'Zubehör Occhio', true, 'zubehoer-occhio'],
-          ['zubehoer_top_light', 'Zubehör Top Light', true, 'zubehoer-top-light'],
-          ['zubehoer_bopp', 'Zubehör Bopp', true, 'zubehoer-bopp'],
-          ['baldachine', 'Baldachine', true, 'baldachine'],
-          ['leuchtenschirme', 'Leuchtenschirme', true, 'leuchtenschirme']
+          ['leuchtmittel', 'Leuchtmittel', TRUE, 'leuchtmittel'],
+          ['led_lampen', 'LED-Lampen', TRUE, 'led-lampen'],
+          ['leuchtenzubehoer', 'Leuchtenzubehör', TRUE, 'leuchtenzubehoer'],
+          ['zubehoer', 'Zubehoer', TRUE, 'zubehoer'],
+          ['zubehoer_occhio', 'Zubehör Occhio', TRUE, 'zubehoer-occhio'],
+          ['zubehoer_top_light', 'Zubehör Top Light', TRUE, 'zubehoer-top-light'],
+          ['zubehoer_bopp', 'Zubehör Bopp', TRUE, 'zubehoer-bopp'],
+          ['baldachine', 'Baldachine', TRUE, 'baldachine'],
+          ['leuchtenschirme', 'Leuchtenschirme', TRUE, 'leuchtenschirme']
         ];
       }
       else {
@@ -111,6 +113,12 @@ class Plugin {
     // Displays product related accessories.
     add_action('woocommerce_single_product_summary', __NAMESPACE__ . '\WooCommerce::woocommerce_single_product_summary', 45);
     add_action('woocommerce_before_single_product', __NAMESPACE__ . '\WooCommerce::woocommerce_before_single_product');
+
+    // GraphQL support.
+    if (is_plugin_active('wp-graphql/wp-graphql.php') && is_plugin_active('wp-graphql-woocommerce/wp-graphql-woocommerce.php')) {
+      add_action('graphql_register_types', __NAMESPACE__ . '\GraphQL::graphql_register_types');
+    }
+
   }
 
   /**
