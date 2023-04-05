@@ -61,8 +61,8 @@ foreach ($related_accessories as $group_name => $accessories) {
           wc_get_template_part('content', 'product');
           $output = ob_get_clean();
           // Inject the required class and data attribute using an existing class in the product view link as position reference.
-          $pattern = '@(<a.*class=".*)(woocommerce-loop-product__link)([^"]*)"([^>]*)>@';
-          $replacement = sprintf('$1$2 yith-wcqv-button $3" data-product_id="%s" $4>', $accessory->get_id());
+          $pattern = '@<a.*(href="[^"]*").*(class=".*)(woocommerce-loop-product__link)([^"]*)"([^>]*)>@';
+          $replacement = sprintf('<a href="#" $2$3 yith-wcqv-button $4" data-product_id="%s" $5>', $accessory->get_id());
           echo preg_replace($pattern, $replacement, $output);
         }
         wp_reset_postdata();
