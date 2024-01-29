@@ -44,7 +44,7 @@ class GraphQL {
           foreach ($relatedAccessoriesIds as $key => $value) {
             if (isset($relatedAccessoriesLabels["field_$key"])) {
                 $relatedAccessories[] = [
-                  'label' => sprintf( __( '%s', 'woocommerce-related-accessories' ), $relatedAccessoriesLabels["field_$key"] ),
+                  'label' => sprintf( __('%s', 'woocommerce-related-accessories'), $relatedAccessoriesLabels["field_$key"]),
                   'accessoriesIds' => $value
                 ];
             }
