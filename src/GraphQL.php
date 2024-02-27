@@ -42,9 +42,10 @@ class GraphQL {
           $relatedAccessoriesLabels = wc_list_pluck(acf_get_local_fields('field_group_related_accessories'), 'label');
           $relatedAccessories = [];
           foreach ($relatedAccessoriesIds as $key => $value) {
-            if (isset($relatedAccessoriesLabels["field_$key"])) {
+            if (isset($relatedAccessoriesLabels["field_$key"]) || isset($relatedAccessoriesLabels[$key])) {
+                $label = $relatedAccessoriesLabels["field_$key"] ?? $relatedAccessoriesLabels[$key];
                 $relatedAccessories[] = [
-                  'label' => sprintf( __('%s', 'woocommerce-related-accessories'), $relatedAccessoriesLabels["field_$key"]),
+                  'label' => sprintf(__('%s', 'woocommerce-related-accessories'), $label),
                   'accessoriesIds' => $value
                 ];
             }
