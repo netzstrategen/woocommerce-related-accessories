@@ -45,7 +45,7 @@ class Plugin {
    * @implements init
    */
   public static function init() {
-    if (function_exists('register_field_group')) {
+    if (function_exists('register_field_group') && defined('MOEVE_SHOP')) {
       // Determine fields based on site.
       if (MOEVE_SHOP === 'GACO') {
         $fields = [
@@ -80,6 +80,17 @@ class Plugin {
           ['leuchtenschirme', 'Leuchtenschirme', TRUE, 'leuchtenschirme']
         ];
       }
+      elseif (MOEVE_SHOP === 'MIA') {
+        $fields = [
+          ['gartenmoebel', 'Gartenmöbel', TRUE, 'gartenmoebel'], 
+          ['leuchtmittel', 'Leuchtmittel', TRUE, 'leuchtmittel'],        
+          ['leuchtenzubehoer', 'Leuchtenzubehör', TRUE, 'leuchtenzubehoer'],
+          ['zubehoer', 'Zubehoer', TRUE, 'zubehoer'],
+          ['plus-produkt', 'Plus-Produkt', TRUE, 'plus-produkt'],
+          ['sale', 'Sale', TRUE, 'sale'],
+          ['sets', 'Sets', TRUE, 'sets']
+        ];
+      }
       else {
         // No acf registered.
       }
@@ -112,6 +123,7 @@ class Plugin {
 
     // Displays product related accessories.
     add_action('woocommerce_single_product_summary', __NAMESPACE__ . '\WooCommerce::woocommerce_single_product_summary', 45);
+    add_shortcode('related_accessories', __NAMESPACE__ . '\WooCommerce::woocommerce_single_product_summary');
     add_action('woocommerce_before_single_product', __NAMESPACE__ . '\WooCommerce::woocommerce_before_single_product');
 
     // GraphQL support.
