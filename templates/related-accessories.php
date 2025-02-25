@@ -14,9 +14,21 @@ foreach ($related_accessories as $group_name => $accessories) {
 
 <div class="related-accessories<?= $is_notice_template ? '' : '--summary' ?>">
   <?php if ($is_notice_template) : ?>
-    <h3><?= __('Matching accessories - order now:', Plugin::L10N) ?></h3>
+    
+    <?php if (MOEVE_SHOP === 'GACO'): ?>
+      <h2><?= __('Matching accessories - order now:', Plugin::L10N) ?></h2>
+    <?php else: ?>
+      <h3><?= __('Matching accessories - order now:', Plugin::L10N) ?></h3>
+    <?php endif; ?>
+    
   <?php else: ?>
-    <h3><?= __('Accessories & Extras', Plugin::L10N) ?></h3>
+    
+    <?php if (MOEVE_SHOP === 'GACO'): ?>
+      <h2><?= __('Accessories & Extras', Plugin::L10N) ?></h2>
+    <?php else: ?>
+      <h3><?= __('Accessories & Extras', Plugin::L10N) ?></h3>
+    <?php endif; ?>
+    
   <?php endif; ?>
 
   <select <?php echo $is_notice_template && $related_accessories_groups_count <= 1 ? 'style="display: none;"' : ''; ?>>
