@@ -57,6 +57,7 @@ class Plugin {
           ['parasol_accessories', 'Parasol accessories', FALSE, 'sonnenschirm-zubehoer'],
           // No field_ in name.
           ['beach_chair_accessories', 'Beach chair accessories', FALSE, 'strandkorb-zubehoer'],
+          ['upgrades', 'Upgrades', TRUE, 'upgrades'],
           ['other_accessories', 'Other accessories', TRUE, 'sonstiges-zubehoer']
         ];
       }
@@ -82,8 +83,8 @@ class Plugin {
       }
       elseif (MOEVE_SHOP === 'MIA') {
         $fields = [
-          ['gartenmoebel', 'Gartenmöbel', TRUE, 'gartenmoebel'], 
-          ['leuchtmittel', 'Leuchtmittel', TRUE, 'leuchtmittel'],        
+          ['gartenmoebel', 'Gartenmöbel', TRUE, 'gartenmoebel'],
+          ['leuchtmittel', 'Leuchtmittel', TRUE, 'leuchtmittel'],
           ['leuchtenzubehoer', 'Leuchtenzubehör', TRUE, 'leuchtenzubehoer'],
           ['zubehoer', 'Zubehoer', TRUE, 'zubehoer'],
           ['plus-produkt', 'Plus-Produkt', TRUE, 'plus-produkt'],
