@@ -61,8 +61,13 @@ class GraphQL {
       'fromFieldName' => 'accessories',
       'connectionTypeName' => 'ProductsFromRelatedAccessories',
       'resolve' => function ($source, $args, $context, $info) {
+        // Pass the IDs as connection args (instead of setting post__in on the
+        // resolver afterwards), so WPGraphQL keeps the order defined in the
+        // backend (orderby post__in) and paginates cursors against it. The IDs
+        // are re-indexed, because filters (e.g. removing unavailable products)
+        // may leave gaps in the keys, while cursors are resolved by position.
+        $args['where']['in'] = array_values($source['accessoriesIds']);
         $resolver = new PostObjectConnectionResolver($source, $args, $context, $info, 'product');
-        $resolver->set_query_arg('post__in', $source['accessoriesIds']);
         $connection = $resolver->get_connection();
         return $connection;
       },
